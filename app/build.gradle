@@ -1,0 +1,69 @@
+apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "creativechaos.samplerxandroid"
+        minSdkVersion 15
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+
+    // #Google Support Libraries
+    compile deps.supportCompat
+    compile deps.supportCoreUtils
+    compile deps.supportCoreUI
+    compile deps.supportFragment
+    compile deps.supportv13
+    compile deps.supportdesign
+    compile deps.appcompatv7
+    compile deps.cardview
+
+    //#Retrofit
+    compile deps.retroBase
+    compile deps.retroConverter
+
+    //#okHttp
+    compile deps.okhttp
+
+    //#RxJava
+    compile deps.rxJavaBase
+    compile deps.rxAndroid
+
+    //#Json parser
+    compile deps.gson
+
+    //#Progress libs
+    compile deps.materialishProgress
+
+    //#Injection
+    compile deps.bkInject
+    annotationProcessor deps.bkAnnotation
+
+    //#Image Loader
+    compile deps.glide
+
+    //#Other Libs
+    compile deps.circleImageView
+
+    //#Logging
+    compile deps.timber
+
+}
